@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Phân tích CSDL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Anh Pham" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+        }
+
+        /* Định dạng header */
+        .header {
+            background-color: #00CC00;
+            color: #58257b;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Định dạng thanh điều hướng trên cùng */
+        .topnav {
+            overflow: hidden;
+            background-color: #58257b;
+        }
+
+        /* Định dạng link điều hướng */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Thay đổi màu liên kết khi di chuột qua */
+        .topnav a:hover {
+            background-color: #FF9966;
+            color: white;
+            font-weight: bold
+        }
+
+        /* Tạo ba cột không bằng nhau, float cạnh nhau */
+        .column {
+            float: left;
+            padding: 10px;
+        }
+
+        /* Cột bên trái và phải */
+        .column.side {
+            width: 25%;
+        }
+
+        /* Cột chính giữa */
+        .column.middle {
+            width: 50%;
+        }
+
+        /* Clear float khác sau các cột */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Bố cục linh hoạt: ba cột xếp chồng lên nhau thay vì cạnh nhau khi màn hình
+        có chiều rộng dưới 600px */
+        @media screen and (max-width: 600px) {
+            .column.side, .column.middle {
+                width: 100%;
+            }
+        }
+
+        /* Định dạng footer */
+        .footer {
+            background-color: #FFFFFF;
+            color: #58257b;
+            padding: 5px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <a href="informationdata.html"
+           style="padding-inline-start: initial;
+    position: relative;
+    top: 18%;
+    bottom: -4%;
+    right: 48%;"
+        ><img style="width: 2%; " src="https://image.flaticon.com/icons/png/512/60/60577.png"></a>
+    </div>
+    <h1>Chủ sở hữu sáng chế</h1>
+</div>
+
+<div class="topnav">
+    <a href="BieudoTron.html">Biểu đồ tròn</a>
+    <a href="BieudoCotVA.html">Biểu đồ Cột</a>
+    <a href="BieudoThanhVA.html">Biểu đồ Thanh</a>
+    <a href="BieudoDuongVA.html">Biểu đồ Đường</a>
+
+</div>
+
+<div class="row">
+    <div class="column side">
+        <h2>Biểu đồ</h2>
+        <p>
+            <!DOCTYPE html>
+            <html lang="vi">
+            <head>
+                <meta charset="UTF-8" />
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                    google.charts.load("current", {packages:["corechart"]});
+                    google.charts.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ["Danh sách chủ sở hữu", "Số bằng sáng chế", { role: "style" } ],
+                            ["UOP LLC", 50, "#FF4500"],
+                            ["EXXONMOBIL CORP", 30, "#32CD32"],
+                            ["CHINA PETROLEUM & CHEMICAL CORP. INC.", 21, "#FFFF00"],
+                            ["JAPAN GAS SYNTHESIZE LTD", 16, "#1E90FF"],
+                            ["L'AIR LIQUIDE S.A", 14, "#FFA500"],
+                            ["SAUDI ARABIAN OIL COMPANY (SAUDI ARAMCO)", 14, "#00FFFF"],
+                            ["SAUDI BASIC INDUSTRIES CORP", 11, "#FF99FF"],
+                            ["INSTITUT FRANCAIS DU PETROLE", 10, "#CD853F"],
+                            ["SK INNOVATION CO LTD", 10, "#CDC9C9"],
+                            ["RESPIRONICS INC.", 8, "#B0E0E6"],
+                        ]);
+
+                        var options = {
+                            title: 'Chủ sở hữu sáng chế',
+                            is3D: true,
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                        chart.draw(data, options);
+                    }
+                </script>
+            </head>
+            <body>
+            <div id="piechart_3d" style="width: 1000px; height: 800px;"></div>
+            </body>
+            </html>
+
+
+        </p>
+    </div>
+
+    <div class="column middle">
+        <h2></h2>
+    </div>
+
+    <div class="column side">
+        <h2>Danh sách</h2>
+        <html>
+        <head>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['table']});
+                google.charts.setOnLoadCallback(drawTable);
+
+                function drawTable() {
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Tên chủ sở hữu');
+                    data.addColumn('number', 'Số bằng sáng chế');
+                    data.addRows([
+                        ['UOP LLC',  {v: 50, f: '50'}],
+                        ['EXXONMOBIL CORP',   {v:30,   f: '30'}],
+                        ['CHINA PETROLEUM & CHEMICAL CORP. INC.', {v: 21, f: '21'}],
+                        ['JAPAN GAS SYNTHESIZE LTD',   {v: 16,  f: '16'}],
+                        ['L\'AIR LIQUIDE S.A.',  {v: 14, f: '14'}],
+                        ['SAUDI ARABIAN OIL COMPANY (SAUDI ARAMCO)',   {v:14,   f: '14'}],
+                        ['SAUDI BASIC INDUSTRIES CORP.', {v: 11, f: '11'}],
+                        ['INSTITUT FRANCAIS DU PETROLE',   {v: 10,  f: '10'}],
+                        ['SK INNOVATION CO LTD',  {v: 10, f: '10'}],
+                        ['RESPIRONICS INC.',   {v:8,   f: '8'}],
+                        ['CHEVRON CORPORATION', {v: 8, f: '8'}],
+                        ['AIR PRODUCTS AND CHEMICALS INC.',   {v: 7,  f: '7'}],
+                        ['RENEWABLE ENERGY GROUP INC',  {v: 7, f: '7'}],
+                        ['KBR INC',   {v:6,   f: '6'}],
+                        ['TECHNIP', {v: 6, f: '6'}],
+                        ['COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH',   {v: 5,  f: '5'}],
+                        ['PRAXAIR INC.',  {v: 5, f: '5'}],
+                        ['BOC GROUP PLC',   {v:5,   f: '5'}],
+                        ['TAIYO NIPPON SANSO CORP', {v: 5, f: '5'}],
+                        ['CHINA UNIVERSITY OF MINING & TECHNOLOGY',   {v: 5,  f: '5'}],
+                        ['INDIAN OIL CORPORATION LTD',  {v: 4, f: '4'}],
+                        ['CHINA PETROCHEMICAL DEVELOPMENT CORP. | CHINA PETROLEUM & CHEMICAL CORP. INC.',   {v:4,   f: '4'}],
+                        ['HITACHI LTD', {v: 4, f: '4'}],
+                        ['LINDE AIR PROD CO',   {v: 4,  f: '4'}],
+                        ['CHINESE ACADEMY OF SCIENCE | BP P.L.C.',  {v: 4, f: '4'}],
+                        ['BP P.L.C. | CHINESE ACADEMY OF SCIENCE',   {v:4,   f: '4'}],
+                        ['PETROLCHINA CO LTD', {v: 4, f: '4'}],
+                        ['CHINA TIANCHEN ENG CORP',   {v: 4,  f: '4'}],
+                        ['LIUZHOU SHANTAI GAS CO LTD',  {v: 4, f: '4'}],
+                        ['UNIVERSITY OF SOUTH CAROLINA',   {v:3,   f: '3'}],
+                    ]);
+
+                    var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                }
+            </script>
+        </head>
+        <body>
+        <div id="table_div"></div>
+        </body>
+        </html>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Giấy phép số 362/GP-BTTTT. Bộ TT&TT cấp ngày 30/06/2016.</p>
+</div>
+
+</body>
+</html>
